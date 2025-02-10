@@ -32,7 +32,7 @@ function RecipeDetails({ recipe }) {
             return;
         }
 
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/workouts/${recipe._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/recipes/${recipe._id}`, {
             method: 'PATCH',
             headers: {
                 'Authorization': `Bearer ${user.token}`,
@@ -44,7 +44,7 @@ function RecipeDetails({ recipe }) {
         const json = await response.json();
 
         if (response.ok) {
-            dispatch({ type: 'UPDATE_WORKOUT', payload: json });
+            dispatch({ type: 'UPDATE_RECIPES', payload: json });
             setIsEditing(false); // Close the edit form after successful update
         }
     };
