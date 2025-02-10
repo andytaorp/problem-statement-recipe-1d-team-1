@@ -2,11 +2,11 @@ import { useRecipesContext } from '../hooks/useRecipesContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-
+ 
 function RecipeDetails({ recipe }) {
     const { dispatch } = useRecipesContext();
     const { user } = useAuthContext();
-
+ 
     const [isEditing, setIsEditing] = useState(false);
     const [updatedRecipe, setUpdatedRecipe] = useState({
         name: recipe.name,
@@ -15,7 +15,7 @@ function RecipeDetails({ recipe }) {
         instructions: recipe.instructions,
         difficulty: recipe.difficulty
     });
-
+ 
     // Handle update form input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,14 +24,14 @@ function RecipeDetails({ recipe }) {
             [name]: value
         }));
     };
-
+ 
     // Handle update form submission
     const handleUpdate = async (e) => {
         e.preventDefault();
         if (!user) {
             return;
         }
-
+ 
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/recipes/${recipe._id}`, {
             method: 'PATCH',
             headers: {
@@ -40,21 +40,22 @@ function RecipeDetails({ recipe }) {
             },
             body: JSON.stringify(updatedRecipe)
         });
-
+ 
         const json = await response.json();
-
+ 
         if (response.ok) {
             dispatch({ type: 'UPDATE_RECIPE', payload: json });
             setIsEditing(false);
+            window.location.reload()
         }
     };
-
-
+ 
+ 
     const handleDelete = async () => {
         if (!user) {
             return;
         }
-
+ 
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/recipes/${recipe._id}`, {
             method: 'DELETE',
             headers: {
@@ -62,12 +63,12 @@ function RecipeDetails({ recipe }) {
             }
         });
         const json = await response.json();
-
+ 
         if (response.ok) {
             dispatch({ type: 'DELETE_RECIPES', payload: json })
         }
     }
-
+ 
     return (
         <div className="workout-details">
             {isEditing ? (
@@ -144,5 +145,5 @@ function RecipeDetails({ recipe }) {
         </div>
     )
 }
-
+ 
 export default RecipeDetails;
