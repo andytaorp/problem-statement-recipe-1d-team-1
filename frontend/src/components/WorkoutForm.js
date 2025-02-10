@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useRecipesContext } from "../hooks/useRecipesContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-function WorkoutForm() {
-    const {dispatch} = useWorkoutsContext();
+function RecipeForm() {
+    const {dispatch} = useRecipesContext();
     const {user} =useAuthContext();
 
-    const [title, setTitle] = useState('');
-    const [load, setLoad] = useState('');
-    const [reps, setReps] = useState('');
+    const [name, setName] = useState('');
+    const [ingredients, setIngredients] = useState('');
+    const [prepTime, setPrepTime] = useState('');
+    const [difficulty, setDifficulty] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
     
@@ -20,13 +21,13 @@ function WorkoutForm() {
             return ;
         }
 
-        const workout = {title, load, reps};
+        const recipe = {name, ingredients, prepTime, difficulty};
 
         const response = await fetch(
-            `${process.env.REACT_APP_API_URL}/api/workouts`, 
+            `${process.env.REACT_APP_API_URL}/api/recipes`, 
             {
             method: "POST",
-            body: JSON.stringify(workout),
+            body: JSON.stringify(recipe),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
@@ -40,44 +41,52 @@ function WorkoutForm() {
         }
 
         if (response.ok) {
-            setTitle('');
-            setLoad('');
-            setReps('');
+            setName('');
+            setIngredients('');
+            setPrepTime('');
+            setDifficulty('');
             setError(null);
             setEmptyFields([]);
-            console.log('new workout added', json);
-            dispatch({type: 'CREATE_WORKOUTS', payload: json})
+            console.log('new recipe added', json);
+            dispatch({type: 'CREATE_RECIPES', payload: json})
         }
     }
 
     return(
         <form className="create" onSubmit={handleSubmit}>
-            <h3>Add a New Workout</h3>
-            <label>Exercise Title:</label> 
+            <h3>Add a New Recipe</h3>
+            <label>Recipe Name:</label> 
             <input
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
-                value={title}
-                className={emptyFields.includes('title') ? 'error' : ''}
+                value={name}
+                className={emptyFields.includes('name') ? 'error' : ''}
             />
-            <label>Load (in kg):</label> 
+            <label>Ingredients:</label> 
             <input
-                type="number"
+                type="text"
                 onChange={(e) => setLoad(e.target.value)}
-                value={load}
-                className={emptyFields.includes('load') ? 'error' : ''}
+                value={ingredients}
+                className={emptyFields.includes('ingredients') ? 'error' : ''}
             />
-            <label>Reps:</label> 
+            <label>Preperation Time:</label> 
             <input
                 type="number"
                 onChange={(e) => setReps(e.target.value)}
-                value={reps}
-                className={emptyFields.includes('reps') ? 'error' : ''}
+                value={prepTime}
+                className={emptyFields.includes('prepTime') ? 'error' : ''}
             />
-            <button>Add Workout</button>
+            <label>Difficulty:</label> 
+            <input
+                type="text"
+                onChange={(e) => setReps(e.target.value)}
+                value={difficulty}
+                className={emptyFields.includes('difficulty') ? 'error' : ''}
+            />
+            <button>Add Recipe</button>
             {error && <div className="error">{error}</div>}
         </form>
     )
 }
 
-export default WorkoutForm;
+export default RecipeForm;

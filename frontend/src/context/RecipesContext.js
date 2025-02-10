@@ -6,11 +6,11 @@ export const recipesReducer = (state, action) => {
     switch(action.type) {
         case 'SET_RECIPES':
             return {
-                workouts: action.payload
+                recipes: action.payload
             }
         case 'CREATE_RECIPES':
             return {
-                workouts: [action.payload, ...state.recipes]
+                recipes: [action.payload, ...state.recipes]
             }
         case 'DELETE_':
             return {
