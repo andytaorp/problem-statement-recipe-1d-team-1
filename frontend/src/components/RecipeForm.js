@@ -71,7 +71,7 @@ function RecipeForm() {
                 value={ingredients}
                 className={emptyFields.includes('ingredients') ? 'error' : ''}
             />
-            <label>Preperation Time:</label>
+            <label>Preparation Time:</label>
             <input
                 type="number"
                 onChange={(e) => setPrepTime(e.target.value)}
