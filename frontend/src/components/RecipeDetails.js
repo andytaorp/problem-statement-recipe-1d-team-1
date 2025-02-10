@@ -32,6 +32,11 @@ function ReceipeDetails({recipe}) {
             <p><strong>Ingredidents:</strong>{recipe.reps}</p>
             <p>{formatDistanceToNow(new Date(recipe.createdAt), {addSuffix: true})}</p>
             <span className='material-symbols-outlined' onClick={handleClick}>delete</span>
+            <label>Upload File:</label>
+              <input 
+                type="file" 
+                onChange={(e) => setFile(e.target.files[0])}
+              />
         </div>
     )
 }
