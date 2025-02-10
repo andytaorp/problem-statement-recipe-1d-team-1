@@ -353,3 +353,14 @@ img {
   margin-top: 30px;
 }
 
+.Logo {
+  display: flex;
+  align-items: center;
+}
+.Logo img {
+  max-height: 80px;
+  margin-right: 20px;
+}
+.Logo h1 {
+  font-size: 1.5em;
+}
