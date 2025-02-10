@@ -70,7 +70,7 @@ function Home() {
         <div className="workouts">
           {sortedRecipes &&
             sortedRecipes.map((recipe) => (
-              <RecipeDetails key={recipe._id} workout={recipe} />
+              <RecipeDetails key={recipe._id} recipe={recipe} />
             ))}
         </div>
       </div>
