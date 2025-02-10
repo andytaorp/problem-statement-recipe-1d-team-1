@@ -33,7 +33,7 @@ function Home() {
   }, [dispatch, user]);
 
   // Sorting Workouts
-  const difficultyLevels = { easy: 1, medium: 2, hard: 3 };
+  const difficultyLevels = { easy: 1, hard: 2 };
 
   const sortedRecipes = Array.isArray(recipes)
     ? [...recipes].sort((a, b) => {
