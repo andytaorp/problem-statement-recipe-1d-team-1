@@ -58,28 +58,28 @@ function RecipeForm() {
             <label>Recipe Name:</label> 
             <input
                 type="text"
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 value={name}
                 className={emptyFields.includes('name') ? 'error' : ''}
             />
             <label>Ingredients:</label> 
             <input
                 type="text"
-                onChange={(e) => setLoad(e.target.value)}
+                onChange={(e) => setIngredients(e.target.value)}
                 value={ingredients}
                 className={emptyFields.includes('ingredients') ? 'error' : ''}
             />
             <label>Preperation Time:</label> 
             <input
                 type="number"
-                onChange={(e) => setReps(e.target.value)}
+                onChange={(e) => setPrepTime(e.target.value)}
                 value={prepTime}
                 className={emptyFields.includes('prepTime') ? 'error' : ''}
             />
             <label>Difficulty:</label> 
             <input
                 type="text"
-                onChange={(e) => setReps(e.target.value)}
+                onChange={(e) => setDifficulty(e.target.value)}
                 value={difficulty}
                 className={emptyFields.includes('difficulty') ? 'error' : ''}
             />
