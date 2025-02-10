@@ -14,7 +14,7 @@ function Navbar() {
             <div className="container">
                 <Link to="/">
                     <div className="Logo">
-                        <img src="/Logo.png" alt="Workout Buddy" />
+                        <img src="/Logo.png" alt="Recipe App" />
                         <h1>Recipe App</h1>
                     </div>
                 </Link>
