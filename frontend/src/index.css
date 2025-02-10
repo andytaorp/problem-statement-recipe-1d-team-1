@@ -1,0 +1,273 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* Base Styles */
+body {
+  background: #1a1a1a; /* Dark background */
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: #e0e0e0; /* Light text */
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #2d2d2d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header a:hover {
+  color: #6ee7b7;
+  transform: translateY(-2px);
+}
+
+/* Main Content Container */
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Homepage Layout */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* Left Column: Workouts and Dropdown */
+.left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sorting Dropdown */
+.sort-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;  /* Aligns dropdown elements to the right */
+  gap: 12px;
+  margin-bottom: 20px;
+  background: #2d2d2d;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.sort-options label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.sort-options select {
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort-options select:hover {
+  border-color: #6ee7b7;
+}
+
+.sort-options select:focus {
+  border-color: #4ad7a7;
+  outline: none;
+  box-shadow: 0 0 8px rgba(110, 231, 183, 0.4);
+}
+
+/* Workouts List */
+.workouts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Workout Details Card */
+.workout-details {
+  background: #2d2d2d;
+  border-radius: 12px;
+  margin: 20px 0;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workout-details:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.4em;
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
+.workout-details p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #b0b0b0;
+  line-height: 1.5;
+}
+
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 50%;
+  color: #e0e0e0;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.workout-details span:hover {
+  background: #6ee7b7;
+  color: #2d2d2d;
+  transform: scale(1.15);
+}
+
+/* Right Column: Workout Form */
+.right-column {
+  background: #2d2d2d;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  height: fit-content;
+}
+
+/* Forms */
+label, input {
+  display: block;
+}
+
+input {
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #444;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #6ee7b7;
+  box-shadow: 0 0 8px rgba(110, 231, 183, 0.4);
+  outline: none;
+}
+
+input.error {
+  border-color: #ff6b6b;
+}
+
+form button {
+  background: #6ee7b7;
+  border: 0;
+  color: #1a1a1a;
+  padding: 12px 20px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+  background: #4ad7a7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+div.error {
+  padding: 12px;
+  background: #ffefef;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 0.95em;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 15px;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #6ee7b7;
+  transform: translateY(-2px);
+}
+
+nav button {
+  background: transparent;
+  color: #6ee7b7;
+  border: 2px solid #6ee7b7;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background: #6ee7b7;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* Auth Forms */
+form.signup,
+form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #2d2d2d;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
