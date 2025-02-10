@@ -353,3 +353,90 @@ img {
   margin-top: 30px;
 }
 
+.food-analyzer {
+  background: #2d2d2d;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  background: #444;
+  color: #e0e0e0;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background: #6ee7b7;
+  color: #1a1a1a;
+}
+
+.analyze-button {
+  background: #6ee7b7;
+  border: 0;
+  color: #1a1a1a;
+  padding: 12px 20px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+.analyze-button:hover {
+  background: #4ad7a7;
+  transform: translateY(-2px);
+}
+
+.analyze-button:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+.nutrition-info {
+  margin-top: 20px;
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  color: #e0e0e0;
+  text-align: left;
+}
+
+.nutrition-info h3 {
+  color: #6ee7b7;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.nutrition-info ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.nutrition-info p {
+  color: #b0b0b0;
+}
