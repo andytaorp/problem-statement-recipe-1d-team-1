@@ -33,16 +33,20 @@ function Home() {
   }, [dispatch, user]);
 
   // Sorting Workouts
-  const sortedRecipes = recipes
+  const difficultyLevels = { easy: 1, medium: 2, hard: 3 };
+
+  const sortedRecipes = Array.isArray(recipes)
     ? [...recipes].sort((a, b) => {
-        if (sortBy === "newest")
-          return new Date(b.createdAt) - new Date(a.createdAt);
-        if (sortBy === "oldest")
-          return new Date(a.createdAt) - new Date(b.createdAt);
-        if (sortBy === "hardest") return b.difficulty - a.difficulty;
-        if (sortBy === "easiest") return a.difficulty - b.difficulty;
-        if (sortBy === "longest") return b.prepTime - a.prepTime;
-        if (sortBy === "shortest") return a.prepTime - b.prepTime;
+        if (sortBy === "newest") return new Date(b.createdAt) - new Date(a.createdAt);
+        if (sortBy === "oldest") return new Date(a.createdAt) - new Date(b.createdAt);
+        if (sortBy === "hardest") 
+          return (difficultyLevels[b.difficulty?.toLowerCase()] ?? 0) - 
+                 (difficultyLevels[a.difficulty?.toLowerCase()] ?? 0);
+        if (sortBy === "easiest") 
+          return (difficultyLevels[a.difficulty?.toLowerCase()] ?? 0) - 
+                 (difficultyLevels[b.difficulty?.toLowerCase()] ?? 0);
+        if (sortBy === "longest") return (Number(b.prepTime) || 0) - (Number(a.prepTime) || 0);
+        if (sortBy === "shortest") return (Number(a.prepTime) || 0) - (Number(b.prepTime) || 0);
         return 0;
       })
     : [];
