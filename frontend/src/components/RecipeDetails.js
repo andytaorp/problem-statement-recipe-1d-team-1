@@ -46,6 +46,7 @@ function RecipeDetails({ recipe }) {
         if (response.ok) {
             dispatch({ type: 'UPDATE_RECIPE', payload: json });
             setIsEditing(false);
+            window.location.reload()
         }
     };
 
