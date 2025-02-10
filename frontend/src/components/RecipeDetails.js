@@ -45,7 +45,7 @@ function ReceipeDetails({ recipe }) {
 
         if (response.ok) {
             dispatch({ type: 'UPDATE_RECIPE', payload: json });
-            setIsEditing(false);
+            setIsEditing(false); // Close the edit form after successful update
         }
     };
 
@@ -63,7 +63,7 @@ function ReceipeDetails({ recipe }) {
         const json = await response.json();
 
         if (response.ok) {
-            dispatch({ type: 'DELETE_RECIPES', payload: json })
+            dispatch({ type: 'DELETE_RECIPE', payload: json })
         }
     }
 
