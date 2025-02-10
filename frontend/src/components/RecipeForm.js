@@ -62,21 +62,23 @@ function RecipeForm() {
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
-                className={emptyFields.includes('name') ? 'error' : ''}
+                className={Array.isArray(emptyFields) && emptyFields.includes('name') ? 'error' : ''}
             />
             <label>Ingredients:</label>
             <input
                 type="text"
                 onChange={(e) => setIngredients(e.target.value)}
                 value={ingredients}
-                className={emptyFields.includes('ingredients') ? 'error' : ''}
+                className={Array.isArray(emptyFields) && emptyFields.includes('ingredients') ? 'error' : ''}
+
             />
             <label>Preperation Time:</label>
             <input
                 type="number"
                 onChange={(e) => setPrepTime(e.target.value)}
                 value={prepTime}
-                className={emptyFields.includes('prepTime') ? 'error' : ''}
+                className={Array.isArray(emptyFields) && emptyFields.includes('prepTime') ? 'error' : ''}
+
             />
             <label>Instructions:</label>
             <input
