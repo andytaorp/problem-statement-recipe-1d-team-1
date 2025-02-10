@@ -41,8 +41,8 @@ function Home() {
           return new Date(a.createdAt) - new Date(b.createdAt);
         if (sortBy === "hardest") return b.difficulty - a.difficulty;
         if (sortBy === "easiest") return a.difficulty - b.difficulty;
-        if (sortBy === "longest") return b.prepTime - a.reps;
-        if (sortBy === "shortest") return a.reps - b.reps;
+        if (sortBy === "longest") return b.prepTime - a.prepTime;
+        if (sortBy === "shortest") return a.prepTime - b.prepTime;
         return 0;
       })
     : [];
@@ -67,7 +67,7 @@ function Home() {
           </select>
         </div>
 
-        <div className="recipes">
+        <div className="workouts">
           {sortedRecipes &&
             sortedRecipes.map((recipe) => (
               <RecipeDetails key={recipe._id} recipe={recipe} />

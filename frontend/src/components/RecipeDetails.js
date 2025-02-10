@@ -1,10 +1,10 @@
-import {useWorkoutsContext} from '../hooks/useRecipesContext';
+import {useRecipesContext} from '../hooks/useRecipesContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 function ReceipeDetails({recipe}) {
-    const {dispatch} = useWorkoutsContext();
+    const {dispatch} = useRecipesContext();
     const {user} = useAuthContext();
 
     const handleClick = async() => {
