@@ -27,9 +27,11 @@ function ReceipeDetails({recipe}) {
 
     return(
         <div className="workout-details">
-            <h4>{recipe.title}</h4>
-            <p><strong>Name (kg):</strong>{recipe.load}</p>
-            <p><strong>Ingredidents:</strong>{recipe.reps}</p>
+            <h4>{recipe.name}</h4>
+            <p><strong>Ingredidents: </strong>{recipe.ingredients}</p>
+            <p><strong>Preperation Time: </strong>{recipe.prepTime}</p>
+            <p><strong>Instructions: </strong>{recipe.instructions}</p>
+            <p><strong>Difficulty: </strong>{recipe.difficulty}</p>
             <p>{formatDistanceToNow(new Date(recipe.createdAt), {addSuffix: true})}</p>
             <span className='material-symbols-outlined' onClick={handleClick}>delete</span>
         </div>
