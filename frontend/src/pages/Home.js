@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useRecipesContext } from "../hooks/useRecipesContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-import WorkoutDetails from "../components/WorkoutDetails";
-import WorkoutForm from "../components/WorkoutForm";
+import RecipeDetails from "../components/RecipeDetails";
+import RecipeForm from "../components/RecipeForm";
 
 function Home() {
-  const { workouts, dispatch } = useWorkoutsContext();
+  const { recipes, dispatch } = useRecipesContext();
   const { user } = useAuthContext();
   const [sortBy, setSortBy] = useState("newest");
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
+    const fetchRecipes = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/workouts`,
+        `${process.env.REACT_APP_API_URL}/api/recipes`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -23,17 +23,17 @@ function Home() {
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_WORKOUTS", payload: json });
+        dispatch({ type: "SET_RECIPES", payload: json });
       }
     };
 
     if (user) {
-      fetchWorkouts();
+      fetchRecipes();
     }
   }, [dispatch, user]);
 
   // Sorting Workouts
-  const sortedRecipe = recipes
+  const sortedRecipes = recipes
     ? [...recipes].sort((a, b) => {
         if (sortBy === "newest")
           return new Date(b.createdAt) - new Date(a.createdAt);
@@ -68,16 +68,16 @@ function Home() {
         </div>
 
         <div className="workouts">
-          {sortedWorkouts &&
-            sortedWorkouts.map((workout) => (
-              <WorkoutDetails key={workout._id} workout={workout} />
+          {sortedRecipes &&
+            sortedRecipes.map((recipe) => (
+              <RecipeDetails key={recipe._id} workout={recipe} />
             ))}
         </div>
       </div>
 
       {/* Right Column: Workout Form */}
       <div className="right-column">
-        <WorkoutForm />
+        <RecipeForm />
       </div>
     </div>
   );
