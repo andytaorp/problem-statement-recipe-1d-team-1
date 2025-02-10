@@ -72,6 +72,7 @@ header a:hover {
   background: #2d2d2d;
   padding: 12px;
   border-radius: 8px;
+  max-width: auto;
 }
 
 .sort-options label {
@@ -90,6 +91,7 @@ header a:hover {
   color: #e0e0e0;
   cursor: pointer;
   transition: all 0.3s ease;
+  max-width: 200px;
 }
 
 .sort-options select:hover {

@@ -45,7 +45,7 @@ function ReceipeDetails({ recipe }) {
 
         if (response.ok) {
             dispatch({ type: 'UPDATE_RECIPE', payload: json });
-            setIsEditing(false); // Close the edit form after successful update
+            setIsEditing(false);
         }
     };
 
