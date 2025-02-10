@@ -127,13 +127,13 @@ function RecipeDetails({ recipe }) {
                             <option value="hard">Hard</option>
                         </select>
                     </label>
-                    <button type="submit">Update Workout</button>
+                    <button type="submit">Update Recipes</button>
                     <button type="button" class="edit-btn" onClick={() => setIsEditing(false)}>Cancel</button>
                 </form>
             ) : (
                 <>
                     <h4>{recipe.name}</h4>
-                    <p><strong>Ingredidents: </strong>{recipe.ingredients}</p>
+                    <p><strong>Ingredients: </strong>{recipe.ingredients}</p>
                     <p><strong>Preperation Time: </strong>{recipe.prepTime}</p>
                     <p><strong>Instructions: </strong>{recipe.instructions}</p>
                     <p><strong>Difficulty: </strong>{recipe.difficulty}</p>
