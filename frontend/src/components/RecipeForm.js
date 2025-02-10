@@ -9,6 +9,7 @@ function RecipeForm() {
     const [name, setName] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [prepTime, setPrepTime] = useState('');
+    const [instructions, setinstructions] = useState('');
     const [difficulty, setDifficulty] = useState('');
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
@@ -21,7 +22,7 @@ function RecipeForm() {
             return;
         }
 
-        const recipe = { name, ingredients, prepTime, difficulty };
+        const recipe = { name, ingredients, prepTime, instructions, difficulty };
 
         const response = await fetch(
             `${process.env.REACT_APP_API_URL}/api/recipes`,
@@ -45,6 +46,7 @@ function RecipeForm() {
             setIngredients('');
             setPrepTime('');
             setDifficulty('');
+            setinstructions('');
             setError(null);
             setEmptyFields([]);
             console.log('new recipe added', json);
@@ -75,6 +77,13 @@ function RecipeForm() {
                 onChange={(e) => setPrepTime(e.target.value)}
                 value={prepTime}
                 className={emptyFields.includes('prepTime') ? 'error' : ''}
+            />
+            <label>Instructions:</label>
+            <input
+                type="text"
+                onChange={(e) => setinstructions(e.target.value)}
+                value={instructions}
+                className={emptyFields.includes('instructions') ? 'error' : ''}
             />
             <label>Difficulty:</label>
             <select
