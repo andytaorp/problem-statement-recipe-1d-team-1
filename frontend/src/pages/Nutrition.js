@@ -4,7 +4,7 @@ function FoodAnalyzer() {
   const [image, setImage] = useState(null);
   const [nutritionData, setNutritionData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const API_USER_TOKEN = "1629ac1e19db2585a06365d8ddf2f3d6540913e7";
+  const API_USER_TOKEN = "79354ef1affbf6c121fa4c3088dcce2adc64157a";
  
   const handleFileChange = (event) => {
     setImage(event.target.files[0]);
