@@ -33,16 +33,16 @@ function Home() {
   }, [dispatch, user]);
 
   // Sorting Workouts
-  const sortedWorkouts = workouts
-    ? [...workouts].sort((a, b) => {
+  const sortedRecipe = recipes
+    ? [...recipes].sort((a, b) => {
         if (sortBy === "newest")
           return new Date(b.createdAt) - new Date(a.createdAt);
         if (sortBy === "oldest")
           return new Date(a.createdAt) - new Date(b.createdAt);
-        if (sortBy === "heaviest") return b.load - a.load;
-        if (sortBy === "lightest") return a.load - b.load;
-        if (sortBy === "mostReps") return b.reps - a.reps;
-        if (sortBy === "leastReps") return a.reps - b.reps;
+        if (sortBy === "hardest") return b.difficulty - a.difficulty;
+        if (sortBy === "easiest") return a.difficulty - b.difficulty;
+        if (sortBy === "longest") return b.prepTime - a.reps;
+        if (sortBy === "shortest") return a.reps - b.reps;
         return 0;
       })
     : [];
@@ -60,10 +60,10 @@ function Home() {
           >
             <option value="newest">Newest</option>
             <option value="oldest">Oldest</option>
-            <option value="heaviest">Heaviest Load</option>
-            <option value="lightest">Lightest Load</option>
-            <option value="mostReps">Most Reps</option>
-            <option value="leastReps">Least Reps</option>
+            <option value="hardest">Hardest difficulty</option>
+            <option value="easiest">Easiest difficulty</option>
+            <option value="longest">Longest preptime</option>
+            <option value="shortest">Shortest preptime</option>
           </select>
         </div>
 
