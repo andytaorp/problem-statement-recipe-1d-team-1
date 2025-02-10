@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-import WorkoutDetails from "../components/WorkoutDetails";
-import WorkoutForm from "../components/WorkoutForm";
+import RecipeDetails from "../components/RecipeDetails";
+import RecipeForm from "../components/RecipeForm";
 
 function Home() {
-  const { workouts, dispatch } = useWorkoutsContext();
+  const { recipes, dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
   const [sortBy, setSortBy] = useState("newest");
 
@@ -33,7 +33,7 @@ function Home() {
   }, [dispatch, user]);
 
   // Sorting Workouts
-  const sortedRecipe = recipes
+  const sortedRecipes = recipes
     ? [...recipes].sort((a, b) => {
         if (sortBy === "newest")
           return new Date(b.createdAt) - new Date(a.createdAt);
@@ -67,9 +67,9 @@ function Home() {
           </select>
         </div>
 
-        <div className="workouts">
-          {sortedWorkouts &&
-            sortedWorkouts.map((workout) => (
+        <div className="recipes">
+          {sortedRecipes &&
+            sortedRecipes.map((workout) => (
               <WorkoutDetails key={workout._id} workout={workout} />
             ))}
         </div>
