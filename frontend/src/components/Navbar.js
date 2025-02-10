@@ -13,7 +13,10 @@ function Navbar() {
         <header>
             <div className="container">
                 <Link to="/">
-                    <h1>Recipe App</h1>
+                    <div className="Logo">
+                        <img src="/Logo.png" alt="Workout Buddy" />
+                        <h1>Recipe App</h1>
+                    </div>
                 </Link>
                 <Link to="/nutrition">Nutrition Analysis</Link>
                 <nav>

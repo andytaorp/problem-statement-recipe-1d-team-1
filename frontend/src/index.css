@@ -440,3 +440,15 @@ input[type="file"] {
 .nutrition-info p {
   color: #b0b0b0;
 }
+
+.Logo {
+  display: flex;
+  align-items: center;
+}
+.Logo img {
+  max-height: 80px;
+  margin-right: 20px;
+}
+.Logo h1 {
+  font-size: 1.5em;
+}
