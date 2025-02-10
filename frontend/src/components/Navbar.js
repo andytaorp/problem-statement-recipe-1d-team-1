@@ -15,6 +15,9 @@ function Navbar() {
                 <Link to="/">
                     <h1>Recipe App</h1>
                 </Link>
+                <Link to="/NutritionAnalysis">
+                    <h1>Nutrition Analysis</h1>    
+                </Link>
                 <nav>
                     {user && (
                         <div>
