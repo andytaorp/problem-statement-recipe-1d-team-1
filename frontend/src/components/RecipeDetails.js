@@ -44,8 +44,8 @@ function RecipeDetails({ recipe }) {
         const json = await response.json();
 
         if (response.ok) {
-            dispatch({ type: 'UPDATE_RECIPES', payload: json });
-            setIsEditing(false); // Close the edit form after successful update
+            dispatch({ type: 'UPDATE_RECIPE', payload: json });
+            setIsEditing(false);
         }
     };
 
@@ -76,7 +76,7 @@ function RecipeDetails({ recipe }) {
                         Name:
                         <input
                             type="text"
-                            name="title"
+                            name="name"
                             value={updatedRecipe.name}
                             onChange={handleChange}
                             required
