@@ -332,3 +332,25 @@ label {
   margin-bottom: 8px;
   display: block;
 }
+
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  padding: 30px;
+  cursor: pointer;
+}
+
+img {
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.nutrition-info {
+  margin-top: 30px;
+}
+
