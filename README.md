@@ -4,7 +4,7 @@
 Kenny(leader): Added API, Added Update/PATCH, Testing
 Kian Rong: Testing
 Hafiz: Changed Pages, Testing
-Jeremy: Changed Styles, Changed Components, Testing
+Jeremy: Changed Styles, Changed Components, Testing, Deployment of App
 
 # Live Link Demo:
-https://problem-statement-recipe-1d-team-1-1.onrender.com/login, Deployment of App
+https://problem-statement-recipe-1d-team-1-1.onrender.com/login
